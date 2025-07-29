@@ -12,22 +12,23 @@ export const ProfileForm = () => {
   const navigate = useNavigate();
   const { success, error } = useToast();
 
-  const onSubmit = async (data) => {
-    try {
-      const res = await fetch("/profiles", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error("Failed to create profile");
-      const profile = await res.json();
-      success("Successful created profile");
-      navigate(`/profiles/${profile.id}`);
-    } catch (err) {
-      console.error(err);
-      error("Could not create profile");
-    }
-  };
+const onSubmit = async (data) => {
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profiles`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error("Failed to create profile");
+    const profile = await res.json();
+    success("Successful created profile");
+    navigate(`/profiles/${profile.id}`);
+  } catch (err) {
+    console.error(err);
+    error("Could not create profile");
+  }
+};
+
 
   return (
     <form
