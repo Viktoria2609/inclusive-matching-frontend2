@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@import "./fonts.css";
+
+* {
+  font-family: "Monument", sans-serif;
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 3s ease-in-out;
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

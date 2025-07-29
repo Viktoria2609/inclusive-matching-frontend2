@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Monument";
+  src: url("../shared/assets/fonts/MonumentExtended-Regular.otf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("../shared/assets/fonts/MonumentExtended-Ultrabold.otf")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.monument-font {
+  font-family: "Monument", sans-serif;
+}
