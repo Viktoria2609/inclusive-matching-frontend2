@@ -13,7 +13,7 @@ export const ProfileDetailPage = () => {
 const fetchProfile = async () => {
   try {
     setLoading(true);
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profiles/${id}`);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/profiles/${id}`);
     if (!res.ok) throw new Error("Failed to fetch profile");
     const data = await res.json();
     setProfile(data);
