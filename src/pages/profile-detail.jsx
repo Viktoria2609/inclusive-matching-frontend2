@@ -10,19 +10,19 @@ export const ProfileDetailPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(`/profiles/${id}`);
-        if (!res.ok) throw new Error("Failed to fetch profile");
-        const data = await res.json();
-        setProfile(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+const fetchProfile = async () => {
+  try {
+    setLoading(true);
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/profiles/${id}`);
+    if (!res.ok) throw new Error("Failed to fetch profile");
+    const data = await res.json();
+    setProfile(data);
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
 
     fetchProfile();
   }, [id]);
