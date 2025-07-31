@@ -13,7 +13,7 @@ export const ProfileList = ({ loading, error, profiles }) => {
       ) : (
         <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 gap-4">
           {profiles?.map((profile) => (
-            <ProfileItem key={profile.id + Math.random()} profile={profile} />
+            <ProfileItem key={profile.id} profile={profile} />
           ))}
         </div>
       )}

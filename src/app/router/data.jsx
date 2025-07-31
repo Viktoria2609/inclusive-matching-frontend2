@@ -1,8 +1,4 @@
-import { ProfileDetailPage } from "@/pages/profile-detail";
-import { MatchPage } from "@/pages/match";
-import { MainPage } from "@/pages/main";
-
-import { routes } from "@/shared/routes";
+import { CreateProfilePage } from "@/pages/create-profile"; 
 
 export const routerData = [
   {
@@ -16,5 +12,9 @@ export const routerData = [
   {
     url: routes.match,
     component: <MatchPage />,
+  },
+  {
+    url: routes.createProfile, 
+    component: <CreateProfilePage />,
   },
 ];

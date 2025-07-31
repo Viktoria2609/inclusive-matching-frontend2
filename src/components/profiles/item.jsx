@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export const ProfileItem = ({ profile }) => {
   const { id, child_age, city, strengths, needs } = profile;

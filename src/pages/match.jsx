@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 
 import { ProfileList } from "@/components/profiles/list";
-
-import { mockProfiles } from "@/shared/constants";
 import bg from "@/shared/assets/background.png";
 
 export const MatchPage = () => {
-  const [profiles, setProfiles] = useState(mockProfiles);
+  const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await fetch("/profiles");
+        setLoading(true);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/profiles`);
         if (!res.ok) throw new Error("Failed to fetch profiles");
         const data = await res.json();
         setProfiles(data);
@@ -24,10 +23,8 @@ export const MatchPage = () => {
       }
     };
 
-    if (!profiles?.length) {
-      fetchProfiles();
-    }
-  }, [profiles]);
+    fetchProfiles();
+  }, []);
 
   return (
     <div className="w-full">

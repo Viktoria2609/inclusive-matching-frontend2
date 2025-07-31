@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Monument";
-  src: url("../shared/assets/fonts/MonumentExtended-Regular.otf") format("woff");
+  src: url("../shared/assets/fonts/MonumentExtended-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 @font-face {
   font-family: "Monument";
   src: url("../shared/assets/fonts/MonumentExtended-Ultrabold.otf")
-    format("woff");
+    format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
