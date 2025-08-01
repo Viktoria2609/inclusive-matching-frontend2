@@ -3,7 +3,7 @@
 @import "./fonts.css";
 
 * {
-  font-family: "Monument", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .animate-fade-in-out {

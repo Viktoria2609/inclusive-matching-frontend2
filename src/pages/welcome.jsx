@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import bg from "@/shared/assets/background.png";
 
 export const WelcomePage = () => {
@@ -15,10 +15,10 @@ export const WelcomePage = () => {
       />
 
       {/* Top-right login */}
-      <div className="absolute top-4 right-6 z-10">
+      <div className="absolute top-6 right-6 z-10">
         <Link
           to="/login"
-          className="text-white bg-indigo-600 hover:bg-indigo-800 rounded-4xl px-6 py-3 font-medium"
+          className="text-white bg-indigo-600 hover:bg-indigo-800 rounded-4xl px-6 py-3 font-medium shadow"
         >
           Login
         </Link>
@@ -26,7 +26,9 @@ export const WelcomePage = () => {
 
       {/* Centered content */}
       <div className="z-10 relative w-full h-full flex flex-col justify-center items-center text-center px-4">
-        <h1 className="text-7xl font-bold mb-8">KIDNECT</h1>
+        <h1 className="text-7xl monument-font font-bold mb-6 drop-shadow">
+          KIDNECT
+        </h1>
 
         <p className="text-xl max-w-xl">
           To start, find community, learn{" "}
@@ -41,9 +43,9 @@ export const WelcomePage = () => {
 
         {/* Expandable About section */}
         {showAbout && (
-          <div className="mt-6 max-w-2xl text-lg bg-white/80 text-gray-800 p-6 rounded-4xl shadow">
+          <div className="mt-6 max-w-2xl text-lg bg-white/90 text-gray-900 p-6 rounded-4xl shadow">
             <p>
-              KIDNECT is an inclusive matching platform that connects families
+              <strong>KIDNECT</strong> is an inclusive matching platform that connects families
               with children who have developmental differences. It promotes
               shared growth and community based on children's strengths and goals.
             </p>
@@ -55,7 +57,7 @@ export const WelcomePage = () => {
           <p className="text-2xl mb-4">Ready to start?</p>
           <Link
             to="/login"
-            className="bg-indigo-600 hover:bg-indigo-800 text-white rounded-4xl px-8 py-4 text-lg font-medium transition"
+            className="bg-indigo-600 hover:bg-indigo-800 text-white rounded-4xl px-8 py-4 text-lg font-semibold transition shadow"
           >
             Login
           </Link>

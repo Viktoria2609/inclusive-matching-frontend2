@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-
 import { routes } from "@/shared/routes";
 
 export const Header = () => {
@@ -13,18 +12,20 @@ export const Header = () => {
         ) : (
           <Link
             to={routes.main}
-            className={`inline-block mt-4 p-4 text-center rounded-4xl bg-white border duration-300 font-medium`}
+            className="inline-block mt-4 p-4 text-center rounded-4xl bg-white border duration-300 font-medium"
           >
             Inclusive Matching.
           </Link>
         )}
 
-        <Link
-          to={routes.match}
-          className="inline-block mt-4 p-4 text-center rounded-4xl text-white bg-indigo-600 hover:bg-indigo-800 duration-300 font-medium"
-        >
-          Find Match →
-        </Link>
+        {location.pathname !== routes.main && (
+          <Link
+            to={routes.match}
+            className="inline-block mt-4 p-4 text-center rounded-4xl text-white bg-indigo-600 hover:bg-indigo-800 duration-300 font-medium"
+          >
+            Find Match →
+          </Link>
+        )}
       </div>
     </div>
   );
