@@ -12,53 +12,57 @@ export const WelcomePage = () => {
         <h1 className="text-2xl monument-font font-bold tracking-wide">KIDNECT</h1>
       </div>
 
-      {/* Top-right Login */}
-      <div className="absolute top-6 right-6 z-10">
+      {/* Top-right Navigation */}
+      <div className="absolute top-6 right-6 z-10 space-x-4">
+        <Link
+          to="/profiles"
+          className="text-indigo-900 bg-white hover:bg-gray-200 rounded-full px-5 py-2 font-medium shadow"
+        >
+          See All Profiles
+        </Link>
         <Link
           to="/login"
-          className="text-white bg-indigo-600 hover:bg-indigo-800 rounded-full px-6 py-2 font-medium shadow"
+          className="text-white bg-indigo-600 hover:bg-indigo-800 rounded-full px-5 py-2 font-medium shadow"
         >
           Login
         </Link>
       </div>
 
-      {/* Main Layout */}
-      <div className="flex flex-col md:flex-row h-full w-full">
-        {/* Left Text Section */}
-        <div className="flex-1 flex flex-col justify-center items-start px-8 md:px-16 py-12 space-y-6">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            Welcome!<br />
-            To start, find community<br />
-            learn{" "}
-            <span
-              className="underline cursor-pointer"
-              onClick={() => setShowAbout(!showAbout)}
-            >
-              about
-            </span>{" "}
-            the project.
-          </h1>
+{/* Main Content */}
+<div className="flex flex-col md:flex-row h-full w-full">
+  {/* Left Text Section */}
+  <div className="flex-1 flex flex-col justify-center items-start px-10 md:px-20 py-12 space-y-6 ml-12">
+    {/* "Welcome!" on its own line */}
+    <h1 className="text-3xl md:text-5xl font-extrabold leading-snug">
+      Welcome!
+    </h1>
 
-          {showAbout && (
-            <div className="bg-white/90 text-gray-900 p-6 rounded-3xl shadow max-w-lg ml-8">
-              <p>
-                <strong>KIDNECT</strong> is an inclusive matching platform that connects families
-                with children who have developmental differences. It promotes
-                shared growth and community based on children's strengths and goals.
-              </p>
-            </div>
-          )}
+    {/* Rest of the sentence */}
+    <p className="text-3xl md:text-5xl font-extrabold leading-snug max-w-xl">
+      To{" "}
+      <Link to="/login" className="underline font-semibold hover:text-indigo-500">
+        start
+      </Link>
+      , find community — learn{" "}
+      <button
+        onClick={() => setShowAbout(!showAbout)}
+        className="underline font-semibold hover:text-indigo-500 transition ml-1"
+      >
+        about
+      </button>{" "}
+      the project.
+    </p>
 
-          <div className="ml-16">
-            <p className="text-xl mt-6 mb-4">Ready to start?</p>
-            <Link
-              to="/login"
-              className="bg-indigo-600 hover:bg-indigo-800 text-white px-6 py-3 rounded-full font-semibold shadow"
-            >
-              Login
-            </Link>
-          </div>
-        </div>
+    {showAbout && (
+      <div className="bg-purple-500/15 text-gray-900 p-6 rounded-3xl shadow max-w-lg ml-8">
+        <p>
+          <strong>KIDNECT</strong> is a warm, inclusive space for children of all ages and abilities.
+          Here, families can find a community that shares their child’s strengths, supports their goals, and celebrates their uniqueness.
+          Whether you're looking for peers who just <em>get it</em> or seeking to grow something new — KIDNECT helps you connect, belong, and thrive together.
+        </p>
+      </div>
+    )}
+  </div>
 
         {/* Right Illustration Section */}
         <div className="hidden md:flex flex-1 justify-center items-center px-8 py-12">
@@ -66,7 +70,7 @@ export const WelcomePage = () => {
             <img
               src={illustration}
               alt="Inclusive illustration"
-              className="max-h-[80%] object-contain rounded-3xl"
+              className="opacity-80 mix-blend-multiply transition-all duration-500"
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
+@import "./fonts.css";
 @import "tailwindcss";
 
-@import "./fonts.css";
 
 * {
   font-family: "Inter", sans-serif;
