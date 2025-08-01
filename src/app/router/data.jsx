@@ -1,8 +1,22 @@
+import { WelcomePage } from "@/pages/welcome";
 import { CreateProfilePage } from "@/pages/create-profile"; 
+import { MainPage } from "@/pages/main";
+import { MatchPage } from "@/pages/match";
+import { ProfileDetailPage } from "@/pages/profile-detail";
+import { routes } from "@/shared/routes";
+import { LoginPage } from "@/pages/login";
 
 export const routerData = [
   {
-    url: routes.main,
+    url: routes.main, 
+    component: <WelcomePage />,
+  },
+  {
+    url: routes.login,
+    component: <LoginPage />,
+  },
+  {
+    url: routes.profiles, 
     component: <MainPage />,
   },
   {

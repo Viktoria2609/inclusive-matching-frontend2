@@ -1,6 +1,8 @@
 export const routes = {
-  main: "/",
+  main: "/", 
+  profiles: "/profiles", 
   profileDetail: "/profiles/:id",
   match: "/match",
-  createProfile: "/create-profile"
+  createProfile: "/create-profile",
+  login: "/login",
 };
