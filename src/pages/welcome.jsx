@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import illustration from "@/shared/assets/illustrations/welcome-illustration.png";
+import illustration from "@/shared/assets/welcome-illustration.png";
 
 export const WelcomePage = () => {
   const [showAbout, setShowAbout] = useState(false);
