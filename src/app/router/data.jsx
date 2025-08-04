@@ -5,6 +5,7 @@ import { MatchPage } from "@/pages/match";
 import { ProfileDetailPage } from "@/pages/profile-detail";
 import { routes } from "@/shared/routes";
 import { LoginPage } from "@/pages/login";
+import { SignUpPage } from "@/pages/signUp";
 
 export const routerData = [
   {
@@ -14,6 +15,10 @@ export const routerData = [
   {
     url: routes.login,
     component: <LoginPage />,
+  },
+  {
+    url: "/signup",
+    component: <SignUpPage />,
   },
   {
     url: routes.profiles, 

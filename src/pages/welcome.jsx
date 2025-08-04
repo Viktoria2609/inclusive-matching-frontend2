@@ -40,7 +40,7 @@ export const WelcomePage = () => {
     {/* Rest of the sentence */}
     <p className="text-3xl md:text-5xl font-extrabold leading-snug max-w-xl">
       To{" "}
-      <Link to="/login" className="underline font-semibold hover:text-indigo-500">
+      <Link to="/signup" className="underline font-semibold hover:text-indigo-500">
         start
       </Link>
       , find community — learn{" "}
