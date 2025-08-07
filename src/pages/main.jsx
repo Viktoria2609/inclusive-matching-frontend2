@@ -45,7 +45,11 @@ export const MainPage = () => {
             </Link>
           </div>
         </div>
-        <img src={bg} className="w-full h-screen object-cover" alt="Background" />
+        <img
+          src={bg}
+          className="w-full h-screen object-cover"
+          alt="Background"
+        />
         <div className="absolute bottom-0 left-0 right-0 w-full h-64 bg-gradient-to-b from-transparent to-white" />
       </div>
 

@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "@/shared/routes";
+import { useAuth } from "@/hooks/AuthContext";
 
 export const Header = () => {
   const location = useLocation();
+  const { user } = useAuth();
 
   return (
     <div className="fixed w-full top-0 left-0 right-0 z-50">
