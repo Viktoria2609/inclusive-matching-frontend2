@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import illustration from "@/shared/assets/welcome-illustration.png";
+import illustration from "@/shared/assets/welcome-illustration2.png";
 import { useAuth } from "@/hooks/AuthContext";
 import { routes } from "../shared/routes";
 
@@ -12,13 +12,20 @@ export const WelcomePage = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-indigo-900 relative">
+    <div
+      className="w-full h-screen bg-cover bg-center bg-no-repeat text-indigo-900 relative"
+      style={{
+        backgroundImage: `url(${illustration})`,
+      }}
+    >
+      {/* Логотип */}
       <div className="absolute top-6 left-6 z-10">
         <h1 className="text-2xl monument-font font-bold tracking-wide">
           KIDNECT
         </h1>
       </div>
 
+      {/* Кнопки справа */}
       <div className="absolute top-6 right-6 z-10 space-x-4 flex items-center">
         <Link
           to="/profiles"
@@ -36,8 +43,6 @@ export const WelcomePage = () => {
         ) : (
           <div className="relative">
             <button
-              id="dropdownDefaultButton"
-              data-dropdown-toggle="dropdown"
               onClick={() => setDropDown(!dropDown)}
               className="text-white bg-indigo-600 hover:bg-indigo-800 rounded-full px-5 py-2 font-medium shadow flex items-center"
               type="button"
@@ -60,14 +65,8 @@ export const WelcomePage = () => {
               </svg>
             </button>
             {dropDown && (
-              <div
-                id="dropdown"
-                className="absolute top-12 right-0 min-w-44 w-full z-50 bg-white rounded-lg shadow-sm"
-              >
-                <ul
-                  className="py-2 text-base text-black"
-                  aria-labelledby="dropdownDefaultButton"
-                >
+              <div className="absolute top-12 right-0 min-w-44 w-full z-50 bg-white rounded-lg shadow-sm">
+                <ul className="py-2 text-base text-black">
                   <li>
                     <Link
                       to={routes.createProfile}
@@ -86,7 +85,7 @@ export const WelcomePage = () => {
                   </li>
                   <li>
                     <button
-                      className="w-full cursor-pointer text-left px-4 py-2 text-red-500 hover:bg-gray-100"
+                      className="w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
                       onClick={logout}
                     >
                       Sign out
@@ -99,51 +98,48 @@ export const WelcomePage = () => {
         )}
       </div>
 
-      <div className="flex flex-col md:flex-row h-full w-full">
-        <div className="flex-1 flex flex-col justify-center items-start px-10 md:px-20 py-12 space-y-6 ml-12">
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-snug">
-            Welcome!
-          </h1>
+      {/* Центральный текстовый блок */}
+      <div className="flex h-full w-full">
+        <div className="flex flex-col justify-start items-start w-full px-6 md:px-12">
+          <div className="w-full max-w-4xl mt-24 md:mt-28 lg:mt-32">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-left ml-8">
+              Welcome!
+            </h1>
 
-          <p className="text-3xl md:text-5xl font-extrabold leading-snug max-w-xl">
-            To{" "}
-            <Link
-              to="/signup"
-              className="underline font-semibold hover:text-indigo-500"
-            >
-              start
-            </Link>
-            , find community — learn{" "}
-            <button
-              onClick={() => setShowAbout(!showAbout)}
-              className="underline font-semibold hover:text-indigo-500 transition ml-1"
-            >
-              about
-            </button>{" "}
-            the project.
-          </p>
+            <p className="mt-4 md:mt-6 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-left">
+              To{" "}
+              <Link
+                to="/signup"
+                className="underline font-semibold hover:text-indigo-500"
+              >
+                start
+              </Link>
+              , find community — {" "}
+                <span className="whitespace-nowrap ml-8">
+                learn{" "}
+                <button
+                  onClick={() => setShowAbout(!showAbout)}
+                  className="underline font-semibold hover:text-indigo-500"
+                >
+                  about
+                </button>{" "}
+                the project !
+              </span>
+            </p>
 
-          {showAbout && (
-            <div className="bg-purple-500/15 text-gray-900 p-6 rounded-3xl shadow max-w-lg ml-8">
-              <p>
-                <strong>KIDNECT</strong> is a warm, inclusive space for children
-                of all ages and abilities. Here, families can find a community
-                that shares their child’s strengths, supports their goals, and
-                celebrates their uniqueness. Whether you're looking for peers
-                who just <em>get it</em> or seeking to grow something new —
-                KIDNECT helps you connect, belong, and thrive together.
-              </p>
-            </div>
-          )}
-        </div>
-
-        <div className="hidden md:flex flex-1 justify-center items-center px-8 py-12">
-          <div className="rounded-3xl bg-white/20 backdrop-blur-sm p-2 shadow-md">
-            <img
-              src={illustration}
-              alt="Inclusive illustration"
-              className="opacity-80 mix-blend-multiply transition-all duration-500"
-            />
+            {showAbout && (
+              <div className="mt-6 md:mt-8 bg-purple-500/15 text-gray-900 py-10 px-6 rounded-3xl shadow max-w-xl">
+                <p>
+                  <strong>KIDNECT</strong> is a warm, inclusive space for
+                  children of all ages and abilities. Here, families can find a
+                  community that shares their child’s strengths, supports their
+                  goals, and celebrates their uniqueness. Whether you're
+                  looking for peers who just <em>get it</em> or seeking to grow
+                  something new — KIDNECT helps you connect, belong, and thrive
+                  together.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
