@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import illustration from "@/shared/assets/welcome-illustration2.png";
+import illustration from "@/shared/assets/welcome-illustration5.png";
 import { useAuth } from "@/hooks/AuthContext";
 import { routes } from "../shared/routes";
 
@@ -13,7 +13,7 @@ export const WelcomePage = () => {
 
   return (
     <div
-      className="w-full h-screen bg-cover bg-center bg-no-repeat text-indigo-900 relative"
+      className="w-full h-screen bg-cover bg-no-repeat bg-[position:right_bottom] text-indigo-900"
       style={{
         backgroundImage: `url(${illustration})`,
       }}
