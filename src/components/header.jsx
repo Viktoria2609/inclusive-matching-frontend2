@@ -6,24 +6,44 @@ export const Header = () => {
   const location = useLocation();
   const { user } = useAuth();
 
+  const onMain = location.pathname === routes.main;
+
   return (
     <div className="fixed w-full top-0 left-0 right-0 z-50">
       <div className="w-full py-4 px-8 flex justify-between items-center">
-        {location.pathname === routes.main ? (
+        {/* Left: Home button (hidden on main) */}
+        {onMain ? (
           <div />
         ) : (
           <Link
             to={routes.main}
-            className="inline-block mt-4 p-4 text-center rounded-4xl bg-white border duration-300 font-medium"
+            aria-label="Go to home"
+            title="Home"
+            className="inline-flex items-center justify-center w-14 h-14 rounded-full 
+                       bg-white/80 border shadow hover:bg-white transition"
           >
-            Inclusive Matching.
+            {/* Home icon (SVG) */}
+            <svg
+              viewBox="0 0 24 24"
+              className="w-6 h-6 text-indigo-700"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 10.5L12 3l9 7.5" />
+              <path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" />
+            </svg>
           </Link>
         )}
 
-        {location.pathname !== routes.main && (
+        {/* Right: CTA (hidden on main) */}
+        {!onMain && (
           <Link
             to={routes.match}
-            className="inline-block mt-4 p-4 text-center rounded-4xl text-white bg-indigo-600 hover:bg-indigo-800 duration-300 font-medium"
+            className="inline-block px-5 py-3 rounded-3xl text-white bg-indigo-600 
+                       hover:bg-indigo-800 transition font-medium"
           >
             Find Match →
           </Link>
