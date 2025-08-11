@@ -20,8 +20,8 @@ export default function AiModal({
   }, [isOpen]);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="AI matching" width="max-w-4xl">
-      <div className="grid gap-5 md:grid-cols-[280px_minmax(0,1fr)]">
+    <Modal isOpen={isOpen} onClose={onClose} title="AI matching" width="max-w-6xl">
+      <div className="grid gap-5 md:grid-cols-[320px_minmax(0,1fr)]">
         {/* Controls */}
         <div className="rounded-2xl border p-3">
           <label className="block mb-3">

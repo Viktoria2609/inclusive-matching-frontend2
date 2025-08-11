@@ -23,10 +23,10 @@ export default function AiRecommendations({ aiData, profiles }) {
           No matching profiles found in local list.
         </div>
       ) : (
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {recommended.map(({ item, profile }) => (
+        <ul className="grid gap-4 [grid-template-columns:repeat(auto-fill,minmax(420px,1fr))]">
+        {recommended.map(({ item, profile }) => (
             <AiCard key={item.candidate_id} item={item} profile={profile} />
-          ))}
+        ))}
         </ul>
       )}
     </section>

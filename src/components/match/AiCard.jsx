@@ -15,7 +15,7 @@ export default function AiCard({ item, profile }) {
   const profileId = profile?.id ?? item.candidate_id;
 
   return (
-    <li className="rounded-2xl border bg-white p-4 shadow-sm">
+    <li className="w-full rounded-2xl border bg-white p-4 md:p-5 shadow-smß">
       <div className="flex items-start justify-between">
         <div className="font-medium">
           <div className="inline-flex items-center gap-2">
