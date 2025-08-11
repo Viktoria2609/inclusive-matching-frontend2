@@ -7,7 +7,6 @@ import { routes } from "@/shared/routes";
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
   const location = useLocation();
-
   const redirectTo = location.pathname + location.search;
 
   if (loading) return <div>Loading...</div>;
@@ -15,11 +14,10 @@ export default function ProtectedRoute({ children }) {
   if (!user) {
     return (
       <Navigate
-        to={`${routes.login}?redirectTo=${decodeURI(redirectTo)}`}
+        to={`${routes.login}?redirectTo=${encodeURIComponent(redirectTo)}`} // ← fix
         replace
       />
     );
   }
-
   return children;
 }

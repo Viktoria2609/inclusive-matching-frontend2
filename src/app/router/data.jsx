@@ -6,6 +6,7 @@ import { ProfileDetailPage } from "@/pages/profile-detail";
 import { routes } from "@/shared/routes";
 import { LoginPage } from "@/pages/login";
 import { SignUpPage } from "@/pages/signUp";
+import ResetPasswordPage from "@/pages/reset-password";
 
 export const routerData = [
   {
@@ -42,5 +43,10 @@ export const routerData = [
     url: routes.createProfile,
     secure: true,
     component: <CreateProfilePage />,
+  },
+  {
+    url: routes.resetPassword,
+    secure: false,
+    component: <ResetPasswordPage />,
   },
 ];
