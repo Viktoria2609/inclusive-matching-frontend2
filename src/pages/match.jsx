@@ -75,6 +75,7 @@ export const MatchPage = () => {
       url.searchParams.set("top_k", String(topK));
       url.searchParams.set("same_city", String(sameCity));
       url.searchParams.set("max_candidates", String(maxCandidates));
+      url.searchParams.set("language", "en");
 
       const res = await fetch(url.toString(), { method: "POST" });
       if (!res.ok) {
