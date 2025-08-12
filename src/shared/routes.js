@@ -6,4 +6,5 @@ export const routes = {
   createProfile: "/create-profile",
   login: "/login",
   signup: "/signup",
+  resetPassword: "/reset-password",
 };

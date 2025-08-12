@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 
 import { ProfileList } from "@/components/profiles/list";
 import bg from "@/shared/assets/background.png";
