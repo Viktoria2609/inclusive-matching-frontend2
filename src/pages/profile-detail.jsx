@@ -38,7 +38,7 @@ export const ProfileDetailPage = () => {
     setTimeout(() => setConnecting(false), 800);
   }
 
-  async function handleDelete() {
+  async function onDelete() {
     const confirmed = window.confirm("Are you sure you want to delete this profile?");
     if (!confirmed) return;
 
@@ -86,52 +86,52 @@ export const ProfileDetailPage = () => {
           <h1 className="text-7xl text-white">Child Age: {child_age}</h1>
         </div>
 
-        <div className="max-w-[800px] w-full flex flex-col gap-4 p-8 md:p-18 bg-white rounded-4xl text-xl shadow-xl">
+        <div className="max-w-[800px] w-full h-auto flex flex-col gap-4 p-8 md:p-18 bg-white rounded-4xl text-xl">
           <div>
-            <span className="mb-2 text-base font-semibold">City:</span>
-            <p className="text-lg">{city}</p>
+            <span className="mb-2 text-base">City:</span>
+            <p>{city}</p>
           </div>
           <div>
-            <span className="mb-2 text-base font-semibold">Strengths:</span>
-            <p className="text-lg">{strengths}</p>
+            <span className="mb-2 text-base">Strengths:</span>
+            <p>{strengths}</p>
           </div>
           <div>
-            <span className="mb-2 text-base font-semibold">Needs:</span>
-            <p className="text-lg">{needs}</p>
+            <span className="mb-2 text-base">Needs:</span>
+            <p>{needs}</p>
           </div>
           <div>
-            <span className="mb-2 text-base font-semibold">Notes:</span>
-            <p className="text-lg">{notes}</p>
+            <span className="mb-2 text-base">Notes:</span>
+            <p>{notes}</p>
           </div>
 
-          <div className="pt-6 flex flex-wrap justify-center gap-4">
+          <div className="pt-4 flex gap-3 flex-wrap">
             <button
               onClick={onConnect}
               disabled={connecting}
-              className="px-6 py-2 rounded-full text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 transition"
+              className="px-5 py-2 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 disabled:opacity-60"
             >
-              {connecting ? "🔗 Connecting…" : "🔗 Connect"}
+              {connecting ? "Connecting…" : "Connect"}
             </button>
 
             <button
               onClick={() => window.history.back()}
-              className="px-6 py-2 rounded-full border border-black text-black hover:bg-gray-100 transition"
+              className="px-5 py-2 rounded-2xl border hover:bg-gray-50"
             >
-              🔙 Back
+              Back
             </button>
 
             <button
-              onClick={handleDelete}
+              onClick={onDelete}
               disabled={deleting}
-              className="px-6 py-2 rounded-full text-white bg-red-600 hover:bg-red-700 disabled:opacity-60 transition"
+              className="px-5 py-2 rounded-2xl border border-black text-black hover:bg-gray-50 disabled:opacity-60"
             >
-              {deleting ? "🗑️ Deleting…" : "🗑️ Delete"}
+              {deleting ? "Deleting…" : "Delete"}
             </button>
           </div>
         </div>
       </div>
 
-      <img src={bg} alt="" className="absolute inset-0 w-full h-screen object-cover" />
+      <img src={bg} alt="" className="absolute inset-0 w-full h-screen" />
     </div>
   );
 };
