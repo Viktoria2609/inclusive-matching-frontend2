@@ -18,14 +18,12 @@ export const WelcomePage = () => {
         backgroundImage: `url(${illustration})`,
       }}
     >
-      {/* Логотип */}
       <div className="absolute top-6 left-6 z-10">
         <h1 className="text-2xl monument-font font-bold tracking-wide">
           KIDNECT
         </h1>
       </div>
 
-      {/* Кнопки справа */}
       <div className="absolute top-6 right-6 z-10 space-x-4 flex items-center">
         <Link
           to="/profiles"
@@ -98,7 +96,6 @@ export const WelcomePage = () => {
         )}
       </div>
 
-      {/* Центральный текстовый блок */}
       <div className="flex h-full w-full">
         <div className="flex flex-col justify-start items-start w-full px-6 md:px-12">
           <div className="w-full max-w-4xl mt-24 md:mt-28 lg:mt-32">
@@ -137,6 +134,9 @@ export const WelcomePage = () => {
                   looking for peers who just <em>get it</em> or seeking to grow
                   something new — KIDNECT helps you connect, belong, and thrive
                   together.
+                  We keep kids’ <strong>privacy</strong>, and let guardians 
+                  decide the way to connect. 
+                  AI recommends matches based on your child’s needs! 
                 </p>
               </div>
             )}
