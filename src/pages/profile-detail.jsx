@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; 
-import { useToast } from "@/components/toast/context"; 
+import { useParams, useNavigate } from "react-router-dom";
+import { useToast } from "@/components/toast/context";
 
 import bg from "@/shared/assets/background.png";
 
 export const ProfileDetailPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { success } = useToast();
+
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [connecting, setConnecting] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -30,10 +33,30 @@ export const ProfileDetailPage = () => {
   }, [id]);
 
   function onConnect() {
-  
     setConnecting(true);
     success("Connect request: coming soon!");
     setTimeout(() => setConnecting(false), 800);
+  }
+
+  async function handleDelete() {
+    const confirmed = window.confirm("Are you sure you want to delete this profile?");
+    if (!confirmed) return;
+
+    setDeleting(true);
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/profiles/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) throw new Error("Failed to delete profile");
+
+      success("Profile deleted successfully");
+      navigate("/profiles");
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      setDeleting(false);
+    }
   }
 
   if (loading) {
@@ -81,8 +104,7 @@ export const ProfileDetailPage = () => {
             <p>{notes}</p>
           </div>
 
-
-          <div className="pt-4 flex gap-3">
+          <div className="pt-4 flex gap-3 flex-wrap">
             <button
               onClick={onConnect}
               disabled={connecting}
@@ -90,11 +112,20 @@ export const ProfileDetailPage = () => {
             >
               {connecting ? "Connecting…" : "Connect"}
             </button>
+
             <button
               onClick={() => window.history.back()}
               className="px-5 py-2 rounded-2xl border hover:bg-gray-50"
             >
               Back
+            </button>
+
+            <button
+              onClick={handleDelete}
+              disabled={deleting}
+              className="px-5 py-2 rounded-2xl bg-red-600 text-white hover:bg-red-700 disabled:opacity-60"
+            >
+              {deleting ? "Deleting…" : "Delete"}
             </button>
           </div>
         </div>
